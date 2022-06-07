@@ -29,7 +29,7 @@
     
 - Datos de alumno para pruebas:
     
-    *Alumno mayor de edad sin autorizar
+    *Alumno mayor de edad 
     
     <strong>name</strong> : Alba
     <strong>password</strong> : 12345678
