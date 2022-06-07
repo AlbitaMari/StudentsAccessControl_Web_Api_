@@ -12,8 +12,6 @@
 -El script de la base de datos es el fichero 'befresh_alba.sql' de este repositorio.
     
     *Datos para acceder a la base de datos
-    HOST=localhost
-    PORT=3306
     DATABASE=befresh_alba
     USERNAME=befresh_alba
     PASSWORD=gVxtAlPaP8 
