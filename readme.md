@@ -1,13 +1,4 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
-
-#Instrucciones 
+<strong>#StudentsAccessControl_Web_Api</strong>
 
 -El script de la base de datos es el fichero 'befresh_alba.sql' de este repositorio.
     
@@ -28,19 +19,20 @@
 - Datos de alumno para pruebas:
     
     *Alumno mayor de edad 
-    
-    <strong>name</strong> : Alba
-    <strong>password</strong> : 12345678
     <strong>code</strong> : 123456789
+    <strong>name</strong> : Alba
+
     
     *Alumno menor de edad autorizado
     
-    <strong>name</strong>: Alvaro
-    <strong>password</strong> : 12345678
     <strong>code</strong> : 216556165
+    <strong>name</strong>: Alvaro
+
     
     *Alumno menor de edad sin autorizar
     
-    <strong>name</strong> : Juaquin
-    <strong>password</strong> : 12345678
     <strong>code</strong> : 453456456
+    <strong>name</strong> : Juaquin
+ 
+ -El único usuario que puede acceder a la página web es el administrador, por lo que el único dato que necesitamos de los alumnos es el número de código a escanear, he añadido la información del campo 'name' para que sea más orientativo.
+
