@@ -1,0 +1,17 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@font-face {
+    font-family: 'opensans';
+    src: url('/app/public/fonts/OpenSans-Regular.ttf');
+}
+@font-face {
+    font-family: 'opensansbold';
+    src: url('/app/public/fonts/OpenSans-Bold.ttf');
+}
