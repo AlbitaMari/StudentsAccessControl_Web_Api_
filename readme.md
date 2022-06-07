@@ -23,25 +23,26 @@
 - Datos del administrador del sistema:
 
     *Administrador
-    email : admin@admin.com     
-    password : 12345678
+    
+    <strong>email</strong> : admin@admin.com     
+    <strong>password</strong>  : 12345678
     
 - Datos de alumno para pruebas:
     
     *Alumno mayor de edad sin autorizar
     
-    name : Alba
-    password : 12345678
-    code : 123456789
+    <strong>name</strong> : Alba
+    <strong>password</strong> : 12345678
+    <strong>code</strong> : 123456789
     
     *Alumno menor de edad autorizado
     
-    name: Alvaro
-    password : 12345678
-    code : 216556165
+    <strong>name</strong>: Alvaro
+    <strong>password</strong> : 12345678
+    <strong>code</strong> : 216556165
     
     *Alumno menor de edad sin autorizar
     
-    name : Juaquin
-    password : 12345678
-    code : 453456456
+    <strong>name</strong> : Juaquin
+    <strong>password</strong> : 12345678
+    <strong>code</strong> : 453456456
