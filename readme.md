@@ -18,14 +18,27 @@
     USERNAME=befresh_alba
     PASSWORD=gVxtAlPaP8 
     
-- Dentro de la carpeta CSV encontraremos tres archivos de prueba con la extensión '.csv' para probar la subida de datos.
+- Dentro de la carpeta CSV encontraremos tres archivos con la extensión '.csv' para probar la subida de datos.
 
 - Datos del administrador del sistema:
+
+    *Administrador
     email : admin@admin.com     
     password : 12345678
     
 - Datos de alumno para pruebas:
-
-    email: alba@saenz.com
+    
+    *Alumno mayor de edad sin autorizar
+    name : Alba
     password : 12345678
     code : 123456789
+    
+    *Alumno menor de edad autorizado
+    name: Alvaro
+    password : 12345678
+    code : 216556165
+    
+    *Alumno menor de edad sin autorizar
+    name : Juaquin
+    password : 12345678
+    code : 453456456
