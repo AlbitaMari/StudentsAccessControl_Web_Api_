@@ -1,0 +1,4 @@
+code,name,surname,birthDate,authorized,email,password,dni
+128226789,Pedro,Lopez,08/07/1973,1,pedro@lopez.com,12345678,73542079Q
+216784165,David,Saenz,07/05/1980,0,david@saenz.com,12345678,31077798M
+621477875,Javi,Rodriguez,26/04/1984,0,javi@rodriguez.com,12345678,34210774A
