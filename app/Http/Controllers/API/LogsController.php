@@ -23,7 +23,7 @@ class LogsController extends Controller
     {
         $user = Auth::user();
         $alumnos = Alumnos::where('id_user','=',$user->id)->first();
-        $log = Logs::where('id_alumno','=',$alumnos->id)->get();
+        $log = Logs::where('id_alumno','=',$alumnos->id)->orderBy('created_at','DESC')->get();
         $logs['logs'] = $log->toArray();
         $alumno['alumno'] = $alumnos->toArray();
 
