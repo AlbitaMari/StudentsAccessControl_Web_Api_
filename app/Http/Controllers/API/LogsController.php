@@ -22,7 +22,7 @@ class LogsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $alumnos = Alumnos::find($user->id);
+        $alumnos = Alumnos::where('id_user','=',$user->id)->first();
         $log = Logs::where('id_alumno','=',$alumnos->id)->get();
         $logs['logs'] = $log->toArray();
         $alumno['alumno'] = $alumnos->toArray();
