@@ -84,7 +84,11 @@
                     </div>
                 </div>
             </form>
-
+            @if(isset($message))
+                <div class="col-4">
+                    <h3 class="alert-message">{{ $message }}</h3>
+                </div>
+            @endif
             <form class="form-horizontal" method="POST" action="{{ route('pdf') }}">
                 {{ csrf_field() }}
                 <div class="row pt-5 justify-content-center">

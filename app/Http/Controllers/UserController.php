@@ -160,35 +160,88 @@ class UserController extends Controller
         $filtro2 = $request['filtro2'];
         $filtro3 = $request['filtro3'];
         $filtro4 = $request['filtro4'];
+        $message='';
 
         if($filtro === 'name'){
-            $alumnos = Alumnos::where('name','=',$filtro2)->get();
-            $logs = Logs::whereIn('id_alumno',$alumnos->pluck('id'))->get();
+            $exist = Alumnos::where('name','=',$filtro2)->exists();
+            if($exist){
+                $alumnos = Alumnos::where('name','=',$filtro2)->get();
+                $logs = Logs::whereIn('id_alumno',$alumnos->pluck('id'))->get();
+            }else{
+                $message = 'No existe ningún registro en la base de datos con ese nombre.';
+                $logs = Logs::all();
+            }
         }
 
         if($filtro === 'surname'){
-            $alumnos = Alumnos::where('surname','=',$filtro2)->get();
-            $logs = Logs::whereIn('id_alumno',$alumnos->pluck('id'))->get();
+            $exist = Alumnos::where('name','=',$filtro2)->exists();
+            if($exist){
+                $alumnos = Alumnos::where('surname','=',$filtro2)->get();
+                $logs = Logs::whereIn('id_alumno',$alumnos->pluck('id'))->get();
+            }else{
+                $message = 'No existe ningún registro en la base de datos con ese apellido.';
+                $logs = Logs::all();
+            }
         }
 
         if($filtro === 'birthDate'){
-            $alumnos = Alumnos::whereDate('birthDate','>=',$filtro3)->whereDate('birthDate','<=',$filtro4)->get();
-            $logs = Logs::whereIn('id_alumno',$alumnos->pluck('id'))->get();
+            if($filtro3 > $filtro4){
+                $message = 'La fecha de comienzo no puede ser posterior a la fecha fin.';
+                $logs = Logs::all();
+
+            }else if($filtro3 == $filtro4){
+                $message = 'Las fechas no pueden ser iguales';
+                $logs = Logs::all();
+            }
+            else{
+                $exist = Alumnos::whereDate('birthDate','>=',$filtro3)->whereDate('birthDate','<=',$filtro4)->exists();
+                if($exist){
+                    $alumnos = Alumnos::whereDate('birthDate','>=',$filtro3)->whereDate('birthDate','<=',$filtro4)->get();
+                    $logs = Logs::whereIn('id_alumno',$alumnos->pluck('id'))->get();
+                }else{
+                    $message = 'No existe ningún registro nacido entre las fechas indicadas.';
+                    $logs = Logs::all();
+                }
+            }
         }
 
         if($filtro === 'action'){
-            $logs = Alumnos::where('action','=',$filtro2)->get();
+            $exist = Logs::where('action','=',$filtro2)->exists();
+            if($exist){
+                $logs = Logs::where('action','=',$filtro2)->get();
+            }else{
+                $message = 'No existe la acción indicada o no existe un log con esa acción. Busca "Salida del centro" o "Recogida del centro"';
+                $logs = Logs::all();
+            }
+
         }
 
         if($filtro === 'created_at'){
-            $logs = Logs::whereDate('created_at','>=',$filtro3)->whereDate('created_at','<=',$filtro4)->get();
+            if($filtro3 > $filtro4){
+                $message = 'La fecha de comienzo no puede ser posterior a la fecha fin';
+                $logs = Logs::all();
+
+            }else if($filtro3 == $filtro4){
+                $message = 'Las fechas no pueden ser iguales';
+                $logs = Logs::all();
+            }
+            else{
+                $exist = Logs::whereDate('created_at','>=',$filtro3)->whereDate('created_at','<=',$filtro4)->exists();
+                if($exist){
+                    $logs = Logs::whereDate('created_at','>=',$filtro3)->whereDate('created_at','<=',$filtro4)->get();
+                }else{
+                    $message = 'No existe ningún alumno registrado en las fechas indicadas.';
+                    $logs = Logs::all();
+                }
+
+            }
         }
 
         if($filtro === 'selecciona'){
             $logs = Logs::all();
         }
         
-        return view('loggs',['logs'=>$logs,'f'=>$filtro,'f1'=>$filtro2,'f2'=>$filtro3,'f3'=>$filtro4]);
+        return view('loggs',['logs'=>$logs,'f'=>$filtro,'f1'=>$filtro2,'f2'=>$filtro3,'f3'=>$filtro4,'message'=>$message]);
     }
 
     public function generatePDF(Request $request){
