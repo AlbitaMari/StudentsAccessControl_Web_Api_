@@ -31,7 +31,7 @@
         <div class="row justify-content-center pt-5">
             <div class="col-6">
             @if (\Session::has('success'))
-                <div class="alert alert-success">
+                <div class="alert alert-message">
                     <ul>
                         <li>{!! \Session::get('success') !!}</li>
                     </ul>

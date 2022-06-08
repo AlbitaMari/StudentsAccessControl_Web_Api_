@@ -37,6 +37,20 @@
                             <form class="form-horizontal" method="POST" action="{{ route('create') }}">
                                 {{ csrf_field() }}
 
+                                <div class="form-group{{ $errors->has('code') ? ' has-error' : '' }}">
+                                    <label for="code" class="col-md-4 control-label"><strong>Código de Alumno</strong></label>
+
+                                    <div class="col-md-6 marcnt">
+                                        <input id="code" type="text" class="form-control" name="code" required>
+
+                                        @if ($errors->has('code'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('code') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
                                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                     <label for="name" class="col-md-4 control-label"><strong>Nombre</strong></label>
 

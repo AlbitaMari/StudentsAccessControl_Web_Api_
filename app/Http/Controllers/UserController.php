@@ -124,27 +124,34 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:6'
         ]);
 
-        $data['code'] = str_random(25);
-
-        $user = User::create([
-            'email' => $request['email'],
-            'password' => bcrypt($request['password']),
-            'dni' => $request['dni'],
-        ]);
-
-        $alumno = Alumnos::create([
-            'id_user' => $user->id,
-            'code' => $data['code'],
-            'name' => $request['name'],
-            'surname' => $request['surname'],
-            'birthDate' => $request['birthDate'],
-            'authorized' => $request['authorized'],
-        ]);
-
-        $alumnos = Alumnos::all();
-        $success = 'El alumno se ha creado correctamente';
-
-        return view('alumnos',['alumnos'=>$alumnos, 'success' => $success]);
+        $email = $request['email'];
+        $code = $request['code'];
+        $exist = User::where('email','=',$email)->exists();
+        $code_exists = Alumnos::where('code','=',$code)->exists();
+        if($exist === False && $code_exists === False){
+            $user = User::create([
+                'email' => $request['email'],
+                'password' => bcrypt($request['password']),
+                'dni' => $request['dni'],
+            ]);
+    
+            $alumno = Alumnos::create([
+                'id_user' => $user->id,
+                'code' => $request['code'],
+                'name' => $request['name'],
+                'surname' => $request['surname'],
+                'birthDate' => $request['birthDate'],
+                'authorized' => $request['authorized'],
+            ]);
+    
+            $alumnos = Alumnos::all();
+            $message = 'El alumno se ha creado correctamente';
+        }
+        else{
+            $alumnos = Alumnos::all();
+            $message = 'Código de alumno o correo electrónico existente en la base de datos. No se ha creado el alumno.';
+        }
+        return view('alumnos',['alumnos'=>$alumnos, 'message' => $message]);
     }
 
     protected function searcher(Request $request){

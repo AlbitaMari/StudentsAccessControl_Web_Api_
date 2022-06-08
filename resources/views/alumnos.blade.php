@@ -34,19 +34,17 @@
                 </div>
         </div>
         <div class="row justify-content-center pt-5">
-                <div class="col-6">
-                @if(isset($success))
-                    <div class="alert alert-success">
+            <div class="col-8">
+                <h4 class="pb-5 cnt lb"><strong>ALUMNOS DEL CENTRO </strong></h4>
+            </div>
+            <div class="col-6">
+                @if(isset($message))
+                    <div class="alert alert-message">
                         <ul>
-                            <li>{{ $success }}</li>
+                            <li>{{ $message }}</li>
                         </ul>
                     </div>
                 @endif
-                </div>
-        </div>
-        <div class="row justify-content-center pt-5">
-            <div class="col-8">
-                <h4 class="pb-5 cnt lb"><strong>ALUMNOS DEL CENTRO </strong></h4>
             </div>
             <div class="col-10 mb-3">
                 <a class="abutton mb-5 btn" href="{{ route('create') }}">Crear Alumno</a>
