@@ -1,11 +1,4 @@
 <strong>#StudentsAccessControl_Web_Api</strong>
-
--El script de la base de datos es el fichero 'befresh_alba.sql' de este repositorio.
-    
-    *Datos para acceder a la base de datos
-    DATABASE=befresh_alba
-    USERNAME=befresh_alba
-    PASSWORD=gVxtAlPaP8 
     
 - Dentro de la carpeta CSV encontraremos tres archivos con la extensión '.csv' para probar la subida de datos.
 
